@@ -6,14 +6,19 @@ class CountdownContainer extends Component {
         super(props);
 
         this.state = {
-            targetDatetime: []
+            targetDatetime: [],
+            secondsLeft: 0
         };
+    }
+
+    countDown(){
+
     }
 
     render() {
         return (
             <div>
-
+                
             </div>
         )
     }
