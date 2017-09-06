@@ -7,6 +7,7 @@ class CountdownContainer extends Component {
         super(props);
 
         this.state = {
+            timer: 0,
             targetDatetime: [],
             secondsLeft: 5
         };
@@ -21,22 +22,21 @@ class CountdownContainer extends Component {
         this.startTimer();
     }
 
-    componentDidUpdate(){
-        this.startTimer();
-        console.log('mnt');
-    }
 
     startTimer() {
-        if(this.state.secondsLeft > 0) {
-            setTimeout(this.countDown, 1000);
+        if(this.state.secondsLeft > 0 && this.state.timer == 0) {
+            let timer = setInterval(this.countDown, 1000);
+            this.setState({timer: timer});
         }
-
     }
 
     countDown(){
         console.log('called');
-        let { secondsLeft } = this.state; 
+        let { secondsLeft, timer } = this.state; 
         secondsLeft--;
+        if(secondsLeft == 0) {
+            clearInterval(timer);
+        }
         this.setState({secondsLeft: secondsLeft});
     }
 
