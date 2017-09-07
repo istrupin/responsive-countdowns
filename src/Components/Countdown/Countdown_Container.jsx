@@ -24,7 +24,7 @@ class CountdownContainer extends Component {
 
 
     startTimer() {
-        if(this.state.secondsLeft > 0 && this.state.timer == 0) {
+        if(this.state.secondsLeft > 0 && this.state.timer === 0) {
             let timer = setInterval(this.countDown, 1000);
             this.setState({timer: timer});
         }
@@ -34,7 +34,7 @@ class CountdownContainer extends Component {
         console.log('called');
         let { secondsLeft, timer } = this.state; 
         secondsLeft--;
-        if(secondsLeft == 0) {
+        if(secondsLeft === 0) {
             clearInterval(timer);
         }
         this.setState({secondsLeft: secondsLeft});
