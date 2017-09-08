@@ -6,7 +6,13 @@ class CountdownListContainer extends Component {
         super(props);
 
         this.state = {
-            countdowns: [1,2]
+            countdowns: [
+                {
+                    targetDateTime: '2017-09-25 09:30:00'
+                }, 
+                {
+                    targetDateTime: '2017-09-29 23:24:012'
+                }]
         };
     }
 
