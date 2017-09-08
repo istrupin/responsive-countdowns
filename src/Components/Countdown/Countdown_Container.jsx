@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import Countdown from './Countdown';
+import moment from 'moment';
 
 
 class CountdownContainer extends Component {
     constructor(props) {
         super(props);
-
+        let dt = moment(props.targetDateTime);
         this.state = {
             timer: 0,
-            targetDatetime: [],
-            secondsLeft: 5
+            secondsLeft: dt.diff(moment(),'seconds'),
+            targetDateTime: dt
         };
 
 
@@ -33,11 +34,10 @@ class CountdownContainer extends Component {
     countDown(){
         console.log('called');
         let { secondsLeft, timer } = this.state; 
-        secondsLeft--;
         if(secondsLeft === 0) {
             clearInterval(timer);
         }
-        this.setState({secondsLeft: secondsLeft});
+        this.setState({secondsLeft: this.state.targetDateTime.diff(moment(),'seconds')});
     }
 
     render() {
