@@ -10,7 +10,7 @@ class CountdownContainer extends Component {
         this.state = {
             timer: 0,
             secondsLeft: dt.diff(moment(),'seconds'),
-            targetDateTime: dt
+            targetDateTime: dt,
         };
 
 
@@ -43,7 +43,7 @@ class CountdownContainer extends Component {
     render() {
         return (
             <div>
-                <Countdown secondsLeft={this.state.secondsLeft} > </Countdown>
+                <Countdown secondsLeft={this.state.secondsLeft} duration={moment.duration(this.state.targetDateTime.diff(moment()))}  > </Countdown>
             </div>
         )
     }
