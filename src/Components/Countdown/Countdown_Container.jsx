@@ -32,7 +32,6 @@ class CountdownContainer extends Component {
     }
 
     countDown(){
-        console.log('called');
         let { secondsLeft, timer } = this.state; 
         if(secondsLeft === 0) {
             clearInterval(timer);
@@ -43,7 +42,11 @@ class CountdownContainer extends Component {
     render() {
         return (
             <div>
-                <Countdown secondsLeft={this.state.secondsLeft} timeLeft={moment.duration(this.state.targetDateTime.diff(moment()))}  > </Countdown>
+                <Countdown secondsLeft={this.state.secondsLeft} 
+                           timeLeft={moment(this.state.targetDateTime.diff(moment()))}
+                           diff={this.state.targetDateTime.diff(moment(),'days')}    
+                           duration={moment.duration(this.state.targetDateTime.diff(moment()))}> 
+                </Countdown>
             </div>
         )
     }
