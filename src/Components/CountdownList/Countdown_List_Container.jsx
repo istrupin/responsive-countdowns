@@ -10,7 +10,7 @@ class CountdownListContainer extends Component {
                 targetDateTime: '2017-09-25 09:30:00'
             },
             {
-                targetDateTime: '2017-09-29 23:24:012'
+                targetDateTime: '2018-01-29 23:24:012'
             }]
         };
     }

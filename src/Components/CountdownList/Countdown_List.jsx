@@ -5,7 +5,9 @@ function renderCountdowns(countdowns){
     return countdowns.map((cd) => {
         return (
             <div>
+                <h1>Countdown</h1>
                 <CountdownContainer targetDateTime={cd.targetDateTime} />
+            <hr/>
             </div>
         );
     });
